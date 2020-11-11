@@ -1,0 +1,5 @@
+package suite
+
+class PureTestSuite {
+  
+}
