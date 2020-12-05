@@ -109,3 +109,19 @@ object Day02B {
     }
 
 }
+
+object Day03 {
+
+  sealed trait Location
+  case object Tree extends Location
+  case object Free extends Location
+
+  def solve(input: List[String]): Solution = {
+    val list = List.range(1, input.size + 1)
+    // list (input, line)
+    val zip = input.zip(list)
+
+    Solution("error day 03")
+  }
+
+}
