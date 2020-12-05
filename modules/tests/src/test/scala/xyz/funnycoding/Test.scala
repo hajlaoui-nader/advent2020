@@ -1,5 +1,3 @@
 package xyz.funnycoding
 
-class Test {
-  
-}
+class Test {}

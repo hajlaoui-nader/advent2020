@@ -4,11 +4,11 @@ object Dependencies {
   object Versions {
     val kindProjector = "0.11.0"
 
-    val cats       = "2.3.0-M1"
-    val catsEffect = "3.0-8096649"
+    val cats       = "2.2.0"
+    val catsEffect = "2.2.0"
 
-    val fs2   = "3.0-5795280"
-    val fs2io = "3.0-5795280"
+    val fs2   = "3.0.0-M3"
+    val fs2io = "3.0.0-M3"
 
     val newtype = "0.4.4"
 

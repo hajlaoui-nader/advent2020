@@ -1,5 +1,3 @@
 package suite
 
-class PureTestSuite {
-  
-}
+class PureTestSuite {}

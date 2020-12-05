@@ -16,6 +16,7 @@ lazy val tests = (project in file("modules/tests"))
   .settings(
     name := "advent2020-test-suite",
     scalacOptions += "-Ymacro-annotations",
+    scalacOptions += "-Ylog-classpath",
     scalafmtOnCompile := true,
     Defaults.itSettings,
     libraryDependencies ++= Seq(
