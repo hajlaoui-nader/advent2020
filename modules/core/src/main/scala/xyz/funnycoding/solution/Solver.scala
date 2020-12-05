@@ -30,6 +30,8 @@ final class LiveSolver[F[_]: Sync: MonadThrow](paths: List[Path], fileReader: Fi
     input match {
       case "01"  => list.map(Day01.solve)
       case "01b" => list.map(Day01B.solve)
+      case "02"  => list.map(Day02.solve)
+      case "02b" => list.map(Day02B.solve)
       case _     => MonadError[F, Throwable].raiseError(DayNotFound(s"$input not found"))
     }
 

@@ -8,7 +8,7 @@ object Day01 {
     val cples: List[(Int, Int)] = xs.flatMap(e => matchs2000(e, xs.filterNot(_ == e)))
     cples.headOption match {
       case Some(value) => Solution(value = s"${value._1 * value._2}")
-      case None        => Solution("error day 1")
+      case None        => Solution("error day 01")
     }
   }
 
@@ -28,7 +28,7 @@ object Day01B {
 
     }.headOption match {
       case Some(value) => Solution(value = s"${value._1 * value._2 * value._3}")
-      case None        => Solution("Error Day01b")
+      case None        => Solution("error day 01b")
     }
   }
 
@@ -43,4 +43,69 @@ object Day01B {
       }
       .map(y => (y, x1, x2))
   }
+}
+
+object Day02 {
+
+  //6-7 v: ckvbtcv
+  def solve(input: List[String]): Solution = {
+    val i = input.map(parse).count(Entry.valid)
+    Solution(value = s"$i")
+  }
+
+  case class Entry(min: Int, max: Int, char: Char, password: String)
+  object Entry {
+    def valid(e: Entry): Boolean = {
+      val size = e.password.count(_ == e.char)
+      size >= e.min && size <= e.max
+    }
+  }
+
+  private def parse(s: String): Entry =
+    s.split(" ").toList match {
+      case rep :: letter :: password :: Nil =>
+        val (min, max) = rep.split("-").toList match {
+          case minStr :: maxStr :: Nil => (minStr.toInt, maxStr.toInt)
+          case _                       => ???
+        }
+        val l = letter.dropRight(1).toCharArray.head
+        Entry(min, max, l, password)
+      case _ => ???
+    }
+
+}
+
+object Day02B {
+
+  //6-7 v: ckvbtcv
+  def solve(input: List[String]): Solution = {
+    val i = input.map(parse).count(Entry.valid)
+    Solution(value = s"$i")
+  }
+
+  case class Entry(min: Int, max: Int, char: Char, password: String)
+  object Entry {
+    def valid(e: Entry): Boolean = {
+      val charAtMin = e.password.charAt(e.min - 1)
+      val charAtMax = e.password.charAt(e.max - 1)
+
+      charAtMin != charAtMax &&
+      (
+        charAtMin == e.char || charAtMax == e.char
+      )
+    }
+  }
+
+  private def parse(s: String): Entry =
+    s.split(" ").toList match {
+      case rep :: letter :: password :: Nil =>
+        val (min, max) = rep.split("-").toList match {
+          case minStr :: maxStr :: Nil => (minStr.toInt, maxStr.toInt)
+          case _                       => ???
+        }
+        val l = letter.dropRight(1).toCharArray.head
+        Entry(min, max, l, password)
+      case _ => ???
+    }
+
 }
